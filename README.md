@@ -17,7 +17,7 @@ CodeIgniter's **application** and **system** directories are separated from the 
 ```
 project/
 |-- codeigniter/
-|   |-- app/
+|   |-- application/
 |   |-- system/
 |
 |-- public/

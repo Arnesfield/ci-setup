@@ -35,7 +35,7 @@
 
   project/
   |-- codeigniter/
-  |   |-- app/
+  |   |-- application/
   |   |-- system/
   |
   |-- public/
