@@ -54,5 +54,5 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
 // default
-$route['default_controller'] = 'pages/view';
-$route['(:any)'] = 'pages/view/$1';
+$route['default_controller'] = 'main';
+$route['(:any)'] = '';
