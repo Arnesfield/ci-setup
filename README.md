@@ -32,3 +32,15 @@ project/
     |-- .htaccess
     |-- index.php
 ```
+
+## Release Notes
+### v1.2 ([latest](https://github.com/Arnesfield/ci-setup/releases/latest))
+- Updated `MY_View_Controller` in `application/core`
+- Updated dynamic `base_url` in `config/config.php`
+- Restricted directory listing in `public/.htaccess`
+- Removed `any` route in `config/routes.php`
+
+### v1.1
+- Added custom controller for handling views
+- Renamed `codeigniter/app/` to `codeigniter/application/`
+- Added `email.php.example` in `application/config/`
