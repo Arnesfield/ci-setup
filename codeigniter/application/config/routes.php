@@ -55,4 +55,4 @@ $route['translate_uri_dashes'] = TRUE;
 
 // default
 $route['default_controller'] = 'main';
-$route['(:any)'] = '';
+// $route['(:any)'] = '';

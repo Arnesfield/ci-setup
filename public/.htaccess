@@ -1,3 +1,7 @@
+# avoid listing files
+Options -Indexes
+
+# remove index.php
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

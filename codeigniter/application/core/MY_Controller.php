@@ -12,7 +12,7 @@ class MY_Controller extends CI_Controller {
  * 
  * Extend to this controller to load views.
  */
-class View_Controller extends MY_Controller {
+class MY_View_Controller extends MY_Controller {
   
   /**
    * Loads URL helper.
@@ -25,29 +25,29 @@ class View_Controller extends MY_Controller {
   /**
    * Loads a page in the views/ directory.
    *
-   * @param string $view Name of the page or view
-   * @param array $data Data to be passed in the $view
-   * @param string $dir Directory of the $view under views/
+   * @param string $view Name of the page or view in views/
+   * @param array $data An associative array to be passed in the $view
    * @param boolean $page_only Loads the $view only; otherwise, header and footer in views/templates/ are also loaded
    * @return void
    */
-  protected function view($view = 'home', $data = NULL, $dir = 'pages', $page_only = FALSE) {
+  protected function _view($view = 'pages/home', array $data = NULL, $page_only = FALSE) {
     // check if page exists
-    if (!file_exists(APPPATH . 'views/' . $dir . '/' . $view . '.php')) {
+    if (!file_exists(APPPATH . 'views/' . $view . '.php')) {
       show_404();
     }
 
-    // if data is null
-    if ($data === NULL) {
-      $data['title'] = ucfirst($view);
+    // set title if data is null or empty
+    if ($data === NULL || empty($data)) {
+      $data['title'] = ucfirst(basename($view));
     }
 
+    // load page
     if ($page_only === TRUE) {
-      $this->load->view($dir . '/' . $view, $data);
+      $this->load->view($view, $data);
     }
     else {
       $this->load->view('templates/header', $data);
-      $this->load->view($dir . '/' . $view);
+      $this->load->view($view);
       $this->load->view('templates/footer');
     }
 
