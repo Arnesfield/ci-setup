@@ -34,7 +34,11 @@ project/
 ```
 
 ## Release Notes
-### v1.2 ([latest](https://github.com/Arnesfield/ci-setup/releases/latest))
+### v1.3 ([latest](https://github.com/Arnesfield/ci-setup/releases/latest))
+- Allowed multiple views to load in `MY_View_Controller`
+- Fixed `index.php` problem in `base_url`
+
+### v1.2
 - Updated `MY_View_Controller` in `application/core`
 - Updated dynamic `base_url` in `config/config.php`
 - Restricted directory listing in `public/.htaccess`

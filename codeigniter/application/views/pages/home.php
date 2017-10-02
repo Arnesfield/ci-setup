@@ -56,7 +56,13 @@
     <h3>Release Notes</h3>
     <hr>
 
-    <h4>v1.2 (<a target="_blank" href="https://github.com/Arnesfield/ci-setup/releases/latest">latest</a>)</h4>
+    <h4>v1.3 (<a target="_blank" href="https://github.com/Arnesfield/ci-setup/releases/latest">latest</a>)</h4>
+    <ul>
+      <li>Allowed multiple views to load in <code>MY_View_Controller</code></li>
+      <li>Fixed <code>index.php</code> problem in <code>base_url</code></li>
+    </ul>
+
+    <h4>v1.2</h4>
     <ul>
       <li>Updated <code>MY_View_Controller</code> in <code>application/core</code></li>
       <li>Updated dynamic <code>base_url</code> in <code>config/config.php</code></li>
