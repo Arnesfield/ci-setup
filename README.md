@@ -1,5 +1,5 @@
 # CodeIgniter Project Setup
-A web application project setup using [CodeIgniter](https://codeigniter.com/) (v3.1.5).
+A web application project setup using [CodeIgniter](https://codeigniter.com/) (v3.1.6).
 
 ## Third-party
 This setup includes the following third-party tools, fonts, modules, or frameworks:
@@ -34,7 +34,11 @@ project/
 ```
 
 ## Release Notes
-### v1.3 ([latest](https://github.com/Arnesfield/ci-setup/releases/latest))
+### v1.3.1 ([latest](https://github.com/Arnesfield/ci-setup/releases/latest))
+- Updated CodeIgniter from `v3.1.5` to `v3.1.6`.
+- Updated and fixed `codeigniter/.gitignore`.
+
+### v1.3
 - Allowed multiple views to load in `MY_View_Controller`
 - Fixed `index.php` problem in `base_url`
 
