@@ -34,7 +34,10 @@ project/
 ```
 
 ## Release Notes
-### v1.3.1 ([latest](https://github.com/Arnesfield/ci-setup/releases/latest))
+### v1.4 ([latest](https://github.com/Arnesfield/ci-setup/releases/latest))
+- Added `MY_CRUD_Model` in `application/core`.
+
+### v1.3.1
 - Updated CodeIgniter from `v3.1.5` to `v3.1.6`.
 - Updated and fixed `codeigniter/.gitignore`.
 

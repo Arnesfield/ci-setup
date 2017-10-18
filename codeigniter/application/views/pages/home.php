@@ -56,7 +56,12 @@
     <h3>Release Notes</h3>
     <hr>
 
-    <h4>v1.3.1 (<a target="_blank" href="https://github.com/Arnesfield/ci-setup/releases/latest">latest</a>)</h4>
+    <h4>v1.4 (<a target="_blank" href="https://github.com/Arnesfield/ci-setup/releases/latest">latest</a>)</h4>
+    <ul>
+      <li>Added <code>MY_CRUD_Model</code> in <code>application/core</code>.</li>
+    </ul>
+
+    <h4>v1.3.1</h4>
     <ul>
       <li>Updated CodeIgniter from <code>v3.1.5</code> to <code>v3.1.6</code>.</li>
       <li>Updated and fixed <code>codeigniter/.gitignore</code>.</li>
