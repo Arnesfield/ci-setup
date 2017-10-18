@@ -9,7 +9,7 @@ class MY_Model extends CI_Model {
 }
 
 /**
- * Custom model for CRUD.
+ * Custom model for CRUD (create, read, update, delete).
  * 
  * @author John Benedict Cruz Legaspi
  * @author Jefferson Rylee
@@ -17,6 +17,17 @@ class MY_Model extends CI_Model {
 class MY_CRUD_Model extends MY_Model {
   public function __construct(){
     parent::__construct();
+  }
+
+  /**
+   * Inserts a row in a table in the database.
+   *
+   * @param string $table Name of table
+   * @param array $data An associative array of insert values
+   * @return bool TRUE if insert was successful; otherwise, FALSE
+   */
+  public function _create($table, $data = array()){
+    return $this->db->insert($table, $data);
   }
 
   /**
@@ -62,51 +73,39 @@ class MY_CRUD_Model extends MY_Model {
     return $query->num_rows() > 0 ? $query->result_array() : FALSE;
   }
 
-  public function insert($table,$data){
-    $result = $this->db->insert($table,$data);
-    if (isset($result)) {
-        return TRUE;
-      }else{
-        return FALSE;
-      }
+  /**
+   * Updates a row in a table in the database.
+   *
+   * @param string $table Name of the table
+   * @param array $data An associative array of update values
+   * @param array $where An associative array of conditiona
+   * @return bool TRUE if update was successful; otherwise, FALSE
+   */
+  public function _update($table, $data, $where = NULL) {
+    return $this->db->update($table, $data, $where);
   }
 
-  public function update($table,$data,$where=""){
-    if($where!=""){
-        $this->db->where($where);
-      }
-    $result = $this->db->update($table,$data);
-    if (isset($result)) {
-        return TRUE;
-      }else{
-        return FALSE;
-      }
+  /**
+   * Deletes a row from table(s) in the database.
+   *
+   * @param mixed $table The table(s) to delete from
+   * @param string $where An associative array of conditions
+   * @return bool TRUE if delete was successful; otherwise, FALSE
+   */
+  public function _delete($table, $where = '') {
+    return $this->db->delete($table, $where) !== NULL;
   }
 
-  public function delete($table,$where=""){
-    if($where!=""){
-        $this->db->where($where);
-      }
-     $result = $this->db->delete($table);
-       if (isset($result)) {
-        return TRUE;
-      }else{
-        return FALSE;
-      }
+  /**
+   * Get the number of rows based on a condition from a table in the database.
+   *
+   * @param string $table Name of the table
+   * @param array $where An associative array of conditions
+   * @return int Number of rows
+   */
+  public function _get_count($table, $where = NULL) {
+    return $this->db->get_where($table, $where)->num_rows();
   }
-
-   public function getCount($table,$where=""){
-        if (!empty($where)) {
-        $this->db->where($where);
-      }
-
-        $query = $this->db->get($table);
-      if ($query->num_rows() > 0) {
-        return $query->num_rows();
-      }else{
-        return 0;
-      }
-    }
 }
 
 ?>
