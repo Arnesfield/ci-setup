@@ -106,6 +106,50 @@ class MY_CRUD_Model extends MY_Model {
   public function _get_count($table, $where = NULL) {
     return $this->db->get_where($table, $where)->num_rows();
   }
+
+  /**
+   * Creates a slug based on conditions.
+   *
+   * @param string $table Name of the table
+   * @param string $slug_col Name of the column of the slug text
+   * @param string $new_name New name to be slugged
+   * @param mixed $id ID of the row to be slugged
+   * @param string $name_col Name of the column of the name text
+   * @param string $id_col Name of the ID column
+   * @return mixed The slug string or none
+   */
+  public function _create_slug($table, $slug_col, $new_name, $id = NULL, $name_col = '', $id_col = 'id') {
+    // return if new name is empty
+    if (empty($new_name)) {
+      return;
+    }
+
+    $count = 0;
+    $slug = $name = url_title($new_name, '-', TRUE);
+
+    while(true) {
+      $where = array($slug_col => $slug);
+      
+      // if item exists
+      if ($id !== NULL && !empty($name_col) && $items = $this->_read($table, array('where' => array($id_col => $id)))) {
+        // compare new name to current name using column
+        if (strtolower($new_name) == strtolower($items[0][$name_col])) {
+          // disregard this row in query
+          $where = array_merge($where, array($id_col . ' !=' => $id));
+        }
+      }
+      
+      $this->db->from($table)->where($where);
+      if ($this->db->count_all_results() === 0) {
+        break;
+      }
+      
+      // set slug
+      $slug = $name . '-' . (++$count);
+    }
+
+    return $slug;
+  }
 }
 
 ?>
